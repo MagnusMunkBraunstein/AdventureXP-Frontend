@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Create a Booking</h1>
+
+<div>
+    <div class="form-container">
+        <form id="formBooking">
+
+            <div class="form-group">
+                <label for="inpActivity">Activity</label>
+                <input
+                        type="text"
+                        name="activity"
+                        class="inputfield"
+                        placeholder="Activity name"
+                        id="inpActivity"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label for="inpStartTime">Start Time</label>
+                <input
+                        type="time"
+                        name="startTime"
+                        class="inputfield"
+                        id="inpStartTime"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label for="inpEndTime">End Time</label>
+                <input
+                        type="time"
+                        name="endTime"
+                        class="inputfield"
+                        id="inpEndTime"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label for="inpPersonsAmount">Number of Persons</label>
+                <input
+                        type="number"
+                        name="personsAmount"
+                        class="inputfield"
+                        placeholder="Number of persons"
+                        id="inpPersonsAmount"
+                        required>
+            </div>
+
+            <button type="submit" title="Submit" id="submitBooking">Submit Booking</button>
+
+        </form>
+    </div>
+
+</div>
+
+<script src="js/booking.js"></script>
+</body>
+</html>
