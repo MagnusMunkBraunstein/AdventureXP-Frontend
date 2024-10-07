@@ -2,9 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Season Employee</title>
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
-<h1>Service Employee</h1>
+<h1>Season Employee</h1>
+<h2> Activities </h2>
+<div class="table-container">
+    <div class="button-container">
+        <button id="add-activity-button" class="styled-button">Add Activity</button>
+        <button id="update-activity-button" class="styled-button">Edit Activity</button>
+        <button id="delete-activity-button" class="styled-button">Delete Activity</button>
+    </div>
+    <table class="table" id="activities-table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price Per Person</th>
+            <th>Time Max Limit</th>
+            <th>Age Min</th>
+            <th>Age Max</th>
+            <th>Persons Min</th>
+            <th>Persons Max</th>
+            <th>Opening Time</th>
+            <th>Closing Time</th>
+            <th>Time Slot Interval</th>
+        </tr>
+    </table>
+</div>
+
+<!-- Modal -->
+<div id="add-activity-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <form id="add-activity-form">
+            <input type="text" id="activity-name" placeholder="Name" required>
+            <input type="text" id="activity-description" placeholder="Description" required>
+            <input type="number" id="activity-price" placeholder="Price Per Person" required>
+            <input type="number" id="activity-time-max-limit" placeholder="Time Max Limit" required>
+            <input type="number" id="activity-age-min" placeholder="Age Min" required>
+            <input type="number" id="activity-age-max" placeholder="Age Max" required>
+            <input type="number" id="activity-persons-min" placeholder="Persons Min" required>
+            <input type="number" id="activity-persons-max" placeholder="Persons Max" required>
+            <input type="time" id="activity-opening-time" placeholder="Opening Time" required>
+            <input type="time" id="activity-closing-time" placeholder="Closing Time" required>
+            <input type="number" id="activity-time-slot-interval" placeholder="Time Slot Interval" required>
+            <button type="submit" class="styled-button">Create Activity</button>
+        </form>
+    </div>
+</div>
+
+
+<script type="module" src="../js/fetchData.js"></script>
+
+
 </body>
 </html>

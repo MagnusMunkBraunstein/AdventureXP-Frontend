@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Style for h1 headers */
+h1 {
+    font-size: 2.5em; /* Adjust the size as needed */
+    color: #333; /* Dark gray color */
+    text-align: center; /* Center align the text */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+/* Style for h2 headers */
+h2 {
+    font-size: 2em; /* Adjust the size as needed */
+    color: #666; /* Lighter gray color */
+    text-align: center; /* Center align the text */
+    margin-bottom: 15px; /* Space below the header */
+}
+
+.table-container {
+    position: relative;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.styled-button { /* Added common class for button styling */
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.styled-button:hover { /* Added hover effect for the common class */
+    background-color: #45a049;
+}
+
+#add-activity-button,#update-activity-button, #delete-activity-button {
+    margin-right: 10px; /* Add some space between the buttons */
+}
+
+#add-activity-button {
+    top: -40px; /* Adjust as needed */
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#add-activity-button:hover {
+    background-color: #45a049;
+}
+
+#update-activity-button {
+    background-color: #FF9800; /* Fancy orange */
+}
+
+#update-activity-button:hover {
+    background-color: #FB8C00; /* Darker orange on hover */
+}
+
+#delete-activity-button {
+    background-color: #f44336; /* Red background color */
+    color: white;
+}
+
+#delete-activity-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+.selected {
+    background-color: #d3d3d3; /* Light gray background for selected row */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+table, th, td {
+    border: 1px solid #dddddd;
+}
+
+th, td {
+    padding: 12px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
