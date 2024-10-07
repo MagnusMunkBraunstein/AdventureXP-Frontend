@@ -8,6 +8,12 @@ function createFormEventListener(){
     formBooking.addEventListener("submit", handleFormSubmit);
 }
 
+function setCurrentDate() {
+    const dateInput = document.getElementById('inpDate');
+    const today = new Date().toISOString().split('T')[0]; // Get the current date in YYYY-MM-DD format
+    dateInput.value = today;
+}
+
 async function postObjectAsJson(url, object, httpVerb){
     const objectAsJsonString = JSON.stringify(object);
     console.log(objectAsJsonString);
@@ -33,7 +39,7 @@ async function postFormDataAsJson(url, formData){
     const plainFormData = Object.fromEntries(formData.entries());
     console.log(plainFormData);
 
-    plainFormData.booking = {name: plainFormData.booking};
+    plainFormData.activity = {name: plainFormData.activity};
 
     const response = await postObjectAsJson(url, plainFormData, "POST");
     if (!response.ok) {
