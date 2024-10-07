@@ -1,70 +1,112 @@
 console.log("Im in equipmentservice.js");
 
+console.log("I'm in equipment.js");
+
+console.log("I'm in equipmentservice.js");
+
+// Constants
+const API_BASE_URL = 'http://localhost:8080/api/equipment/all';
+const PUT_URL = 'http://localhost:8080/api/equipment/mark-functional/';
+const tableBody = document.querySelector('#equipmentTable tbody');
+
+// Log tableBody to make sure it's correctly selected
+console.log(tableBody);
+if (!tableBody) {
+    console.error("Table body not found!");
+}
+
+// Fetch data from the backend
 document.addEventListener("DOMContentLoaded", function () {
+    fetchEquipmentData();
+});
 
-    // Fetch data from the backend getmapping
-    fetch('http://localhost:8080/api/equipment/all')
-        .then(response => response.json())
+// Fetch all equipment data
+function fetchEquipmentData() {
+    fetch(API_BASE_URL)
+        .then(response => {
+            console.log('Response received:', response);  // Log the raw response
+            return response.json();
+        })
         .then(data => {
-
-            // Filter the equipment to get eqipment non functional
-            const nonFunctionalEquipment = data.filter(equipment => !equipment.functional);
-
-            //repeat and show table
-            function renderNonFunctionalEquipment(equipmentList) {
-                const tableBody = document.querySelector('#equipmentTable tbody');
-                tableBody.innerHTML = '';
-
-
-                equipmentList.forEach(equipment => {
-                    const row = document.createElement('tr');
-
-                    // Create table cells
-                    const nameCell = document.createElement('td');
-                    nameCell.textContent = equipment.name;
-
-                    const functionalCell = document.createElement('td');
-                    functionalCell.textContent = 'No';
-
-                    const serviceCell = document.createElement('td');
-                    serviceCell.textContent = equipment.underService ? 'Yes' : 'No';
-
-                    const actionCell = document.createElement('td');
-                    const markAsFunctionalButton = document.createElement('button');
-                    markAsFunctionalButton.textContent = 'Mark as Functional';
-
-
-                    markAsFunctionalButton.addEventListener('click', function () {
-                        fetch(`http://localhost:8080/api/equipment/mark-functional/${equipment.id}`, {  // Full URL for our put request inthe controller
-                            method: 'PUT'
-                        })
-                            .then(response => {
-                                if (response.ok) {
-                                    alert('Equipment is now marked as functional');
-                                    location.reload();
-                                } else {
-                                    alert('Something went wrong setting the equipment to functionals');
-                                }
-                            })
-                            .catch(error => {
-                                console.error('Error 404 in marking equipment as functional:', error);
-                            });
-                    });
-
-                    actionCell.appendChild(markAsFunctionalButton);
-
-                    row.appendChild(nameCell);
-                    row.appendChild(functionalCell);
-                    row.appendChild(serviceCell);
-                    row.appendChild(actionCell);
-
-                    tableBody.appendChild(row);
-                });
-            }
-
+            console.log('Data received:', data);  // Log the parsed data
+            const nonFunctionalEquipment = filterNonFunctionalEquipment(data);
             renderNonFunctionalEquipment(nonFunctionalEquipment);
         })
         .catch(error => {
-            console.error('Error in equipmentservice.js:', error);
+            console.error('Error fetching equipment data:', error);
         });
-});
+}
+
+// Filter non-functional equipment
+function filterNonFunctionalEquipment(equipmentList) {
+    return equipmentList.filter(equipment => !equipment.functional);
+}
+
+// Render the non-functional equipment in the table
+function renderNonFunctionalEquipment(equipmentList) {
+    console.log('Rendering equipment list:', equipmentList);  // Log the equipment list
+    tableBody.innerHTML = '';  // Clear existing table rows
+
+    if (equipmentList.length === 0) {
+        console.log("No non-functional equipment found.");
+        tableBody.innerHTML = '<tr><td colspan="4">No non-functional equipment available</td></tr>';
+        return;
+    }
+
+    equipmentList.forEach(equipment => {
+        const row = document.createElement('tr');
+
+        const nameCell = createTableCell(equipment.name);
+        const functionalCell = createTableCell('No');  // Non-functional equipment
+        const serviceCell = createTableCell(equipment.underService ? 'Yes' : 'No');
+        const actionCell = createActionCell(equipment);
+
+        row.appendChild(nameCell);
+        row.appendChild(functionalCell);
+        row.appendChild(serviceCell);
+        row.appendChild(actionCell);
+
+        tableBody.appendChild(row);
+    });
+}
+
+// Create a table cell
+function createTableCell(content) {
+    const cell = document.createElement('td');
+    cell.textContent = content;
+    return cell;
+}
+
+// Create the action cell with the Mark as Functional button
+function createActionCell(equipment) {
+    const actionCell = document.createElement('td');
+    const markAsFunctionalButton = document.createElement('button');
+    markAsFunctionalButton.textContent = 'Mark as Functional';
+
+    // Add event listener for marking as functional
+    markAsFunctionalButton.addEventListener('click', function () {
+        markEquipmentAsFunctional(equipment);
+    });
+
+    actionCell.appendChild(markAsFunctionalButton);
+    return actionCell;
+}
+
+// Mark equipment as functional
+function markEquipmentAsFunctional(equipment) {
+    fetch(`${PUT_URL}${equipment.id}`, {
+        method: 'PUT'
+    })
+        .then(response => {
+            if (response.ok) {
+                alert('Equipment is now marked as functional');
+                // Re-fetch and re-render the list instead of reloading the whole page
+                fetchEquipmentData();  // Re-fetch and re-render the data
+            } else {
+                alert('Failed to mark equipment as functional');
+            }
+        })
+        .catch(error => {
+            console.error('Error marking equipment as functional:', error);
+        });
+}
