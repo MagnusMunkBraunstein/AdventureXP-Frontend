@@ -1,28 +1,73 @@
 body{
-
+font-family: Arial, sans-serif;
+    text-align: center;
 }
 
 
-.equipmentTable{
+/* General Table Styles */
+table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 18px;
-}
-
-
-.equipmentTable, th, td {
-    border: 1px solid #dddddd;
+    text-align: left;
 }
 
 th, td {
     padding: 12px;
+    border: 1px solid #dddddd;
 }
 
 th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Alternate row colors */
+tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
+/* Style the table container */
 .table-container {
+    width: 100%; /* Set to full width */
+    margin: 0; /* Remove automatic centering */
+    padding-top: 20px;
 }
 
+/* Button Container Styles */
+.button-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Button Styles */
+.styled-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.styled-button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table-container {
+        width: 100%;
+    }
+
+    table, th, td {
+        font-size: 16px;
+    }
+
+    .styled-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
