@@ -92,6 +92,7 @@ async function createActivity(event) {
     const equipmentType3 = document.getElementById('equipment-type-3').value;
 
     const newActivity = {
+
         name,
         description,
         pricePrPerson,
@@ -207,6 +208,7 @@ async function updateActivity(event) {
     };
 
     const updatedActivity = {
+        id: activityId,
         name: getElementValue('update-activity-name'),
         description: getElementValue('update-activity-description'),
         pricePrPerson: getElementValue('update-activity-price'),
