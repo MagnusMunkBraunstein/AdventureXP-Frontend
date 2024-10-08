@@ -71,7 +71,7 @@ async function fetchActivities() {
      }
 
      function outsideClick(event) {
-         if (event.target == document.getElementById('add-activity-modal')) {
+         if (event.target === document.getElementById('add-activity-modal')) {
              closeAddActivityModal();
          }
      }
