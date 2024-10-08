@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("bookingModal")
     const createBookingBtn = document.getElementById("createBookingBtn");
     const closeModalbtn = document.querySelector(".close");
-    deleteBookingBtn = document.getElementById("deleteBookingBtn");
+    let deleteBookingBtn = document.getElementById("deleteBookingBtn");
 
     createBookingBtn.addEventListener("click", function () {
         modal.style.display = "block";
@@ -20,14 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     window.addEventListener("click", function (event){
-        if (event.target == modal){
+        if (event.target === modal){
             modal.style.display = "none";
         }
     });
 
     deleteBookingBtn.addEventListener("click", function (){
         if (selectedBookingId){
-            deleteBooking(selectedBookingId);
+            deleteBooking(selectedBookingId).then(r => console.log(r));
         }
     })
 });
