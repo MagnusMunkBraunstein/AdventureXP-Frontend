@@ -33,7 +33,7 @@
     </table>
 </div>
 
-<!-- Modal -->
+<!-- Add Activity Modal -->
 <div id="add-activity-modal" class="modal">
     <div class="modal-content">
         <span class="close-button">&times;</span>
@@ -49,11 +49,37 @@
             <input type="time" id="activity-opening-time" placeholder="Opening Time" required>
             <input type="time" id="activity-closing-time" placeholder="Closing Time" required>
             <input type="number" id="activity-time-slot-interval" placeholder="Time Slot Interval" required>
+
+            <!-- New fields for equipment types -->
+            <input type="text" id="equipment-type-1" placeholder="Equipment Type (Mask, etc...)" required>
+            <input type="text" id="equipment-type-2" placeholder="Equipment Type (Gun, etc...)" required>
+            <input type="text" id="equipment-type-3" placeholder="Equipment Type (Ammunition, etc...)" required>
+
             <button type="submit" class="styled-button">Create Activity</button>
         </form>
     </div>
 </div>
 
+<!-- Update Modal -->
+<div id="update-activity-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-update-button">&times;</span>
+        <form id="update-activity-form">
+            <input type="text" id="update-activity-name" placeholder="Name" required>
+            <input type="text" id="update-activity-description" placeholder="Description" required>
+            <input type="number" id="update-activity-price" placeholder="Price Per Person" required>
+            <input type="number" id="update-activity-time-max-limit" placeholder="Time Max Limit" required>
+            <input type="number" id="update-activity-age-min" placeholder="Age Min" required>
+            <input type="number" id="update-activity-age-max" placeholder="Age Max" required>
+            <input type="number" id="update-activity-persons-min" placeholder="Persons Min" required>
+            <input type="number" id="update-activity-persons-max" placeholder="Persons Max" required>
+            <input type="time" id="update-activity-opening-time" placeholder="Opening Time" required>
+            <input type="time" id="update-activity-closing-time" placeholder="Closing Time" required>
+            <input type="number" id="update-activity-time-slot-interval" placeholder="Time Slot Interval" required>
+            <button type="submit" class="styled-button">Update Activity</button>
+        </form>
+    </div>
+</div>
 
 <script type="module" src="../js/fetchData.js"></script>
 

@@ -112,7 +112,8 @@ th {
     background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
+/* Add Activity Modal styles */
+#add-activity-modal .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -120,15 +121,38 @@ th {
     width: 80%;
 }
 
-.close-button {
+#add-activity-modal .close-button {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close-button:hover,
-.close-button:focus {
+#add-activity-modal .close-button:hover,
+#add-activity-modal .close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Update Modal styles */
+#update-activity-modal .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+#update-activity-modal .close-update-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#update-activity-modal .close-update-button:hover,
+#update-activity-modal .close-update-button:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
