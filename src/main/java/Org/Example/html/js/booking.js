@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const modal = document.getElementById("bookingModal")
     const createBookingBtn = document.getElementById("createBookingBtn");
-    const closeModalbtn = document.getElementById("close");
+    const closeModalbtn = document.querySelector(".close");
     deleteBookingBtn = document.getElementById("deleteBookingBtn");
 
     createBookingBtn.addEventListener("click", function () {
-        modal.style.display = "block";  // Show the form
+        modal.style.display = "block";
     });
 
     closeModalbtn.addEventListener("click", function (){
@@ -121,7 +121,7 @@ async function loadBookings(){
             `;
 
             row.addEventListener("click",function (){
-                selectedBooking(row,booking.id);
+                selectBooking(row,booking.id);
             })
 
             bookingTableBody.appendChild(row);
@@ -140,7 +140,6 @@ function selectBooking(row, bookingId){
 
     row.classList.add("selected");
     selectedBookingId = bookingId;
-
     document.getElementById("deleteBookingBtn").disabled = false;
 }
 async function deleteBooking(bookingId){
