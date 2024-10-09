@@ -193,31 +193,40 @@ function closeUpdateActivityModal() {
 
 async function updateActivity(event) {
     event.preventDefault();
+    console.log('updateActivity function called');
+
     const selectedRow = document.querySelector('.selected');
     if (!selectedRow) {
         alert('Please select an activity to update.');
+        console.log('No row selected');
         return;
     }
 
     const activityId = selectedRow.cells[0]?.textContent;
     if (!activityId) {
         console.error('Activity ID not found');
+        alert('Activity ID not found.');
         return;
     }
+    console.log(`Selected activity ID: ${activityId}`);
 
     const getElementValue = (id) => {
         const element = document.getElementById(id);
         if (!element) {
             console.error(`Element with ID ${id} not found`);
+            alert(`Element with ID ${id} not found.`);
             return '';
         }
+        console.log(`Element with ID ${id} found, value: ${element.value}`);
         return element.value;
     };
 
     // Fetch the current equipment types from the selected row
     const currentEquipmentTypes = selectedRow.cells[12]?.textContent.split(', ') || [];
+    console.log(`Current equipment types: ${currentEquipmentTypes}`);
 
     const updatedActivity = {
+        id: activityId,
         name: getElementValue('update-activity-name'),
         description: getElementValue('update-activity-description'),
         pricePrPerson: getElementValue('update-activity-price'),
@@ -229,10 +238,12 @@ async function updateActivity(event) {
         openingTime: getElementValue('update-activity-opening-time'),
         closingTime: getElementValue('update-activity-closing-time'),
         timeSlotInterval: getElementValue('update-activity-time-slot-interval'),
-        equipmentTypes: selectedRow.cells[12]?.textContent.split(', ') || [] // Retain the old equipment types
+        equipmentTypes: currentEquipmentTypes // Retain the old equipment types
     };
+    console.log('Updated activity object:', updatedActivity);
 
     try {
+        console.log(`Sending PUT request to update activity with ID: ${activityId}`);
         const response = await fetch(`http://localhost:8080/Activity/${activityId}`, {
             method: 'PUT',
             headers: {
@@ -242,9 +253,12 @@ async function updateActivity(event) {
         });
 
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            const errorText = await response.text();
+            console.error(`Network response was not ok: ${errorText}`);
+            throw new Error(`Network response was not ok: ${errorText}`);
         }
 
+        console.log('Activity updated successfully, updating table row');
         // Update the table row with the new data
         selectedRow.cells[1].textContent = updatedActivity.name;
         selectedRow.cells[2].textContent = updatedActivity.description;
@@ -257,10 +271,12 @@ async function updateActivity(event) {
         selectedRow.cells[9].textContent = updatedActivity.openingTime;
         selectedRow.cells[10].textContent = updatedActivity.closingTime;
         selectedRow.cells[11].textContent = updatedActivity.timeSlotInterval;
-        selectedRow.cells[12].textContent = updatedActivity.equipmentTypes.join(', '); // Retain the old equipment types
+
 
         closeUpdateActivityModal();
+        console.log('Update activity modal closed');
     } catch (error) {
         console.error('Error updating activity', error);
+        alert(`Error updating activity: ${error.message}`);
     }
 }
