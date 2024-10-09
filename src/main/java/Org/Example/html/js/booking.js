@@ -32,10 +32,71 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 });
 
+// ------------------- CRUD Operations -------------------
+
+// create
 function createFormEventListener(){
     formBooking = document.getElementById("formBooking");
-    formBooking.addEventListener("submit", handleFormSubmit);
+    formBooking.addEventListener("submit", handleCreateBooking);
 }
+
+async function handleCreateBooking(event){
+    event.preventDefault();
+
+    try{
+        await handleResponse(await postFormDataAsJson(urlPostBooking, new FormData(event.currentTarget)));
+    }catch (error){
+        alert(error.message);
+        console.log(error)
+    }
+}
+
+async function postFormDataAsJson(url, formData) {
+    const plainFormData = Object.fromEntries(formData.entries());
+    console.log(plainFormData);
+
+    // restructuring the activity property of plainFormData to an object with name property.
+    plainFormData.activity = {name: plainFormData.activity};
+
+    return await postObjectAsJson(url, plainFormData, "POST");
+
+}
+
+async function postObjectAsJson(url, object, httpVerb){
+    const objectAsJsonString = JSON.stringify(object);
+    console.log(objectAsJsonString);
+
+    return await fetch(url, {
+        method: httpVerb,
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: objectAsJsonString,
+    });
+}
+
+
+
+// delete
+async function deleteBooking(bookingId){
+    try{
+        const response = await fetch(`${urlDeleteBooking}/${bookingId}`,{
+            method: "DELETE",
+        });
+
+        if (response.ok){
+            alert("Booking deleted");
+            loadBookings();
+        }else {
+            alert("Failed to delete booking");
+        }
+    }catch (error){
+        console.error("Error deleting booking", error);
+        alert("Failed to delete booking");
+    }
+}
+
+// ------------------- Helper methods -------------------
 
 function setCurrentDate() {
     const dateInput = document.getElementById('inpDate');
@@ -43,60 +104,6 @@ function setCurrentDate() {
     dateInput.value = today;
 }
 
-async function postObjectAsJson(url, object, httpVerb){
-    const objectAsJsonString = JSON.stringify(object);
-    console.log(objectAsJsonString);
-
-    const fetchOptions = {
-        method: httpVerb,
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: objectAsJsonString,
-    };
-
-    const response = await fetch(url, fetchOptions);
-    if (!response.ok) {
-        const errorMessage = await response.text();
-        console.log(errorMessage);
-        throw new error(errorMessage);
-    }
-    return response;
-}
-
-async function postFormDataAsJson(url, formData){
-    const plainFormData = Object.fromEntries(formData.entries());
-    console.log(plainFormData);
-
-    plainFormData.activity = {name: plainFormData.activity};
-
-    const response = await postObjectAsJson(url, plainFormData, "POST");
-    if (!response.ok) {
-        const errorMessage = await response.text();
-        console.log(errorMessage);
-        alert(errorMessage);
-    }else{
-        alert("Booking successfully created");
-        loadBookings();
-        document.getElementById("bookingModal").style.display = "none";
-        formBooking.reset();
-    }
-}
-
-async function handleFormSubmit(event){
-    event.preventDefault();
-    const form = event.currentTarget;
-    const url = urlPostBooking;
-
-    try{
-        const formData = new FormData(form)
-        console.log(formData);
-        const responseData = await postFormDataAsJson(url, formData);
-    }catch (error){
-        alert(error.message);
-        console.log(error)
-    }
-}
 async function loadBookings(){
     try{
         const response = await fetch(urlGetBookings);
@@ -126,7 +133,7 @@ async function loadBookings(){
 
             bookingTableBody.appendChild(row);
         });
-        }catch (error){
+    }catch (error){
         console.error("error loading bookings", error);
         alert("failed to load bookings");
     }
@@ -142,20 +149,16 @@ function selectBooking(row, bookingId){
     selectedBookingId = bookingId;
     document.getElementById("deleteBookingBtn").disabled = false;
 }
-async function deleteBooking(bookingId){
-    try{
-        const response = await fetch(`${urlDeleteBooking}/${bookingId}`,{
-            method: "DELETE",
-        });
 
-        if (response.ok){
-            alert("Booking deleted");
-            loadBookings();
-        }else {
-            alert("Failed to delete booking");
-        }
-    }catch (error){
-        console.error("Error deleting booking", error);
-        alert("Failed to delete booking");
+async function handleResponse(response) {
+    if (!response.ok) {
+        const errorMessage = await response.text();
+        console.log(errorMessage);
+        alert(errorMessage);
+    } else {
+        alert("Booking successfully created");
+        loadBookings();
+        document.getElementById("bookingModal").style.display = "none";
+        formBooking.reset();
     }
 }
