@@ -1,16 +1,22 @@
-const urlGetActivities = "http://localhost:8080/Activity/types";
+const urlGetActivities = "http://localhost:8080/Activity";
 
-let activities = await fetch(urlGetActivities)
-    .then(response => response.json())
-    .then(data => {
-        return data;
+async function fetchActivitiesAndFillDropdown() {
+    let activities = await fetch(urlGetActivities)
+        .then(response => response.json())
+        .then(data => {
+            return data;
+        });
+
+    var selActivity = document.getElementById("selActivity");
+
+
+    activities.forEach(function(activity){
+        var option = document.createElement('option')
+        option.value = activity.id;
+        option.text = activity.name;
+        selActivity.add(option);
     });
+}
 
-var selActivity = document.getElementById("selActivity");
-
-
-activities.forEach(function(activity){
-    var option = document.createElement('option')
-
-})
+document.getElementById('createBookingBtn').addEventListener('click', fetchActivitiesAndFillDropdown);
 
