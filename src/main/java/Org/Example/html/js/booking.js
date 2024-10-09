@@ -96,6 +96,7 @@ async function deleteBooking(bookingId){
     }
 }
 
+
 // ------------------- Helper methods -------------------
 
 function setCurrentDate() {
