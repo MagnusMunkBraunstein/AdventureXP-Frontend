@@ -99,11 +99,6 @@ async function deleteBooking(bookingId){
 
 // ------------------- Helper methods -------------------
 
-function setCurrentDate() {
-    const dateInput = document.getElementById('inpDate');
-    const today = new Date().toISOString().split('T')[0]; // Get the current date in YYYY-MM-DD format
-    dateInput.value = today;
-}
 
 async function loadBookings(){
     try{

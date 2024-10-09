@@ -87,12 +87,22 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="inpDate">Date</label>
+                <label for="fixedDate">Date</label>
                 <input
                         type="date"
                         name="date"
                         class="inputfield"
-                        id="inpDate"
+                        id="fixedDate"
+                        required>
+            </div>
+            <div class="form-group">
+                <label for="inpPersonsAmount">Number of Persons</label>
+                <input
+                        type="number"
+                        name="personsAmount"
+                        class="inputfield"
+                        placeholder="Number of persons"
+                        id="inpPersonsAmount"
                         required>
             </div>
             <div class="form-group">
@@ -122,16 +132,7 @@
                         id="inpEndTime"
                         required>
             </div>
-            <div class="form-group">
-                <label for="inpPersonsAmount">Number of Persons</label>
-                <input
-                        type="number"
-                        name="personsAmount"
-                        class="inputfield"
-                        placeholder="Number of persons"
-                        id="inpPersonsAmount"
-                        required>
-            </div>
+
 
             <button type="submit" title="Submit" id="submitBooking">Submit Booking</button>
         </form>
@@ -139,7 +140,8 @@
     </div>
 </div>
 
-<script src="js/booking.js"></script>
-<script src="js/dropboxbooking.js"></script>
+<script src="js/booking/booking.js"></script>
+<script src="js/booking/activity-dropbox-create_booking.js"></script>
+<script src="js/booking/date_field-fixed.js"></script>
 </body>
 </html>
