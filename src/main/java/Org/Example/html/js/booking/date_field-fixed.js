@@ -22,9 +22,9 @@ window.addEventListener('DOMContentLoaded', () => {
 // ---- helper ----
 
 function setElement(idName) {
-    dateField = document.getElementById(elementByIdName);
+    dateField = document.getElementById(idName);
 
     if (!dateField) {
-        console.error('Element with id "' + elementByIdName + '" not found');
+        console.error('Element with id "' + idName + '" not found');
     }
 }
