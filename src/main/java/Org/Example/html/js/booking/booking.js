@@ -1,6 +1,7 @@
 const urlPostBooking = "http://localhost:8080/booking";
 const urlGetBookings = "http://localhost:8080/booking";
 const urlDeleteBooking = "http://localhost:8080/booking";
+const urlGetAvailableTimeslots = "http://localhost:8080/booking/available-timeslots";
 
 document.addEventListener("DOMContentLoaded", function () {
     createFormEventListener();
@@ -9,7 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("bookingModal")
     const createBookingBtn = document.getElementById("createBookingBtn");
     const closeModalbtn = document.querySelector(".close");
-    let deleteBookingBtn = document.getElementById("deleteBookingBtn");
+    const deleteBookingBtn = document.getElementById("deleteBookingBtn");
+    const selActivity = document.getElementById("selActivity");
+    const fixedDate = document.getElementById("fixedDate");
+    const timeslotsContainer = document.getElementById("timeslots");
 
     createBookingBtn.addEventListener("click", function () {
         modal.style.display = "block";
@@ -29,7 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedBookingId){
             deleteBooking(selectedBookingId).then(r => console.log(r));
         }
-    })
+    });
+    fixedDate.addEventListener("change", fetchAvailableTimeslots);
+    selActivity.addEventListener("change", fetchAvailableTimeslots)
 });
 
 // ------------------- CRUD Operations -------------------
@@ -96,6 +102,52 @@ async function deleteBooking(bookingId){
     }
 }
 
+async function fetchAvailableTimeslots(){
+    const selectedActivity = selActivity.value;
+    const selectedDate = fixedDate.value;
+    const personsAmount = document.getElementById("inpPersonsAmount").value;
+
+    timeslotsContainer.innerHTML = '';
+
+    if (selectedActivity && selectedDate && personsAmount){
+        try{
+            const response = await fetch(`${urlGetAvailableTimeslots}?activityId=${selectedActivity}&date=${selectedDate}&personsAmount=${personsAmount}`);
+            const data = await response.json();
+
+            if(response.ok){
+                if (data.length > 0){
+                    data.forEach(slot => {
+                        const slotElement = document.createElement("div");
+                        slotElement.className = "timeslot";
+                        slotElement.textContent = `${slot.startTime} - ${slot.endTime}`;
+                        slotElement.dataset.startTime = slot.startTime;
+                        slotElement.dataset.endTime = slot.endTime;
+
+                        slotElement.onclick = function () {
+                            document.querySelectorAll('.timeslot').forEach(el => el.classList.remove('selected'));
+                            slotElement.classList.add('selected');
+                            document.getElementById('inpStartTime').value = slot.startTime;
+                            document.getElementById('inpEndTime').value = slot.endTime;
+
+
+                        };
+                        timeslotsContainer.appendChild(slotElement);
+
+                    });
+                }else{
+                    timeslotsContainer.innerHTML = '<div>No available timeslots</div>';
+                }
+            }else{
+                timeslotsContainer.innerHTML ='<div>Error fetching timeslots</div>'
+                console.error('Error fetching timeslots', data);
+            }
+        }catch (error){
+            console.error('Error fetching timeslots', error);
+            timeslotsContainer.innerHTML = '<div>Error fetching timeslots</div>'
+        }
+    }
+}
+
 
 // ------------------- Helper methods -------------------
 
@@ -156,5 +208,6 @@ async function handleResponse(response) {
         loadBookings();
         document.getElementById("bookingModal").style.display = "none";
         formBooking.reset();
+        document.getElementById("timeslots").innerHTML = '';
     }
 }
