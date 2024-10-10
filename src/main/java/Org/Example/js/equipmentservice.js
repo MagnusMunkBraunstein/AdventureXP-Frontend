@@ -5,8 +5,8 @@ console.log("I'm in equipment.js");
 console.log("I'm in equipmentservice.js");
 
 // Constants
-const API_BASE_URL = 'http://localhost:8080/api/equipment/all';
-const PUT_URL = 'http://localhost:8080/api/equipment/mark-functional/';
+const API_BASE_URL = 'http://localhost:8080/equipment/all';
+const PUT_URL = 'http://localhost:8080/equipment/mark-functional/';
 const tableBody = document.querySelector('#equipmentTable tbody');
 
 // Log tableBody to make sure it's correctly selected
