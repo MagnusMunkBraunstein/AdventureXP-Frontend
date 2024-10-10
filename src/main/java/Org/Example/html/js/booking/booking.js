@@ -107,6 +107,7 @@ async function fetchAvailableTimeslots(){
     const selectedDate = fixedDate.value;
     const personsAmount = document.getElementById("inpPersonsAmount").value;
 
+    const timeslotsContainer = document.getElementById("timeslots");
     timeslotsContainer.innerHTML = '';
 
     if (selectedActivity && selectedDate && personsAmount){
