@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const deleteBookingBtn = document.getElementById("deleteBookingBtn");
     const selActivity = document.getElementById("selActivity");
     const fixedDate = document.getElementById("fixedDate");
-    const timeslotsContainer = document.getElementById("timeslots");
 
     createBookingBtn.addEventListener("click", function () {
         modal.style.display = "block";
@@ -46,41 +45,19 @@ function createFormEventListener(){
     formBooking.addEventListener("submit", handleCreateBooking);
 }
 
-async function handleCreateBooking(event){
-    event.preventDefault();
+async function handleCreateBooking(event) {
+    event.preventDefault();  // Prevent default form submission
 
-    try{
-        await handleResponse(await postFormDataAsJson(urlPostBooking, new FormData(event.currentTarget)));
-    }catch (error){
-        alert(error.message);
-        console.log(error)
+    // Make the POST request to create the booking
+    try {
+        // Handle the response
+        await handleResponse(await getResponse(getBookingData(event)));
+
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error creating booking: ' + error.message);
     }
 }
-
-async function postFormDataAsJson(url, formData) {
-    const plainFormData = Object.fromEntries(formData.entries());
-    console.log(plainFormData);
-
-    // restructuring the activity property of plainFormData to an object with name property.
-    plainFormData.activity = {name: plainFormData.activity};
-
-    return await postObjectAsJson(url, plainFormData, "POST");
-
-}
-
-async function postObjectAsJson(url, object, httpVerb){
-    const objectAsJsonString = JSON.stringify(object);
-    console.log(objectAsJsonString);
-
-    return await fetch(url, {
-        method: httpVerb,
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: objectAsJsonString,
-    });
-}
-
 
 
 // delete
@@ -102,6 +79,7 @@ async function deleteBooking(bookingId){
     }
 }
 
+// read
 async function fetchAvailableTimeslots(){
     const selectedActivity = selActivity.value;
     const selectedDate = fixedDate.value;
@@ -123,12 +101,14 @@ async function fetchAvailableTimeslots(){
                         slotElement.textContent = `${slot.startTime} - ${slot.endTime}`;
                         slotElement.dataset.startTime = slot.startTime;
                         slotElement.dataset.endTime = slot.endTime;
+                        slotElement.dataset.timeslotId = slot.id;
 
                         slotElement.onclick = function () {
                             document.querySelectorAll('.timeslot').forEach(el => el.classList.remove('selected'));
                             slotElement.classList.add('selected');
                             document.getElementById('inpStartTime').value = slot.startTime;
                             document.getElementById('inpEndTime').value = slot.endTime;
+                            document.getElementById('timeslotId').value = slot.id;
 
 
                         };
@@ -149,7 +129,6 @@ async function fetchAvailableTimeslots(){
     }
 }
 
-
 // ------------------- Helper methods -------------------
 
 
@@ -165,7 +144,6 @@ async function loadBookings(){
 
         bookings.forEach(booking => {
             const row = document.createElement("tr");
-
             row.innerHTML = `
                 <td>${booking.id}</td>
                 <td>${booking.activity.name}</td>
@@ -211,16 +189,41 @@ async function handleResponse(response) {
         formBooking.reset();
         document.getElementById("timeslots").innerHTML = '';
     }
+
 }
 
-function areSlotsConcurrent(slots, date) {
-    slotsStart
-        slots.forEach(slot => {
 
-        })
-        if (new Date(`1970-01-01T${slots[i].endTime}Z`) > new Date(`1970-01-01T${slots[i + 1].startTime}Z`)) {
-            return false;
+// ------ get helper methods ---
+
+function getBookingData(event) {
+    // Get the form data
+    const formData = new FormData(event.target);
+
+    // Create the booking data from the form
+    const bookingData = {
+        activity: {id: formData.get('activity')},
+        booking: {
+            date: formData.get('date'),
+            personsAmount: formData.get('personsAmount'),
+            participantName: formData.get('participantName'),
+            startTime: formData.get('startTime'),
+            endTime: formData.get('endTime'),
+            activity: {id: formData.get('activity')}
+        },
+        timeslot: {
+            timeslotId: formData.get('timeslotId')
         }
+    };
 
-    return true;
+    // Debugging: Show booking data
+    console.log('Booking Data:', bookingData);  // Use console for better debugging
+    return bookingData;
+}
+
+async function getResponse(bookingData) {
+    return await fetch(urlPostBooking, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(bookingData)  // Convert the booking data to JSON string
+    });
 }
