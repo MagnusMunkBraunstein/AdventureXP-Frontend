@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .selected{
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Create a Booking</h1>
+
+<h2>Current Bookings</h2>
+
+<table border="1" id="bookingsTable">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Activity</th>
+        <th>Date</th>
+        <th>Participant</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Persons</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<button id="createBookingBtn">Create New Booking</button>
+<button id="deleteBookingBtn" disabled>Delete Selected Booking</button>
+
+<div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+    <h2>Create a Booking</h2>
+    <div class="form-container">
+        <form id="formBooking">
+            <div class = "left-side">
+                <div class="form-group">
+                    <label for="inpPersonsAmount">Number of Persons</label>
+                    <input
+                            type="number"
+                            name="personsAmount"
+                            class="inputfield"
+                            placeholder="Number of persons"
+                            id="inpPersonsAmount"
+                            required>
+                </div>
+
+                <div class="form-group">
+                    <label for="selActivity">Activity</label>
+                    <select
+                            name="activity"
+                            class="inputfield"
+                            id="selActivity"
+                            required>
+                        <!-- options -->
+
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fixedDate">Date</label>
+                    <input
+                            type="date"
+                            name="date"
+                            class="inputfield"
+                            id="fixedDate"
+                            required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inpParticipantName">Participant's name</label>
+                    <input
+                            type="text"
+                            name="participantName"
+                            class="inputfield"
+                            id="inpParticipantName"
+                            required>
+                </div>
+                <div class="form-group">
+                    <label for="inpStartTime">Start Time</label>
+                    <input
+                            type="time"
+                            name="startTime"
+                            class="inputfield"
+                            id="inpStartTime"
+                            required>
+                </div>
+                <div class="form-group">
+                    <label for="inpEndTime">End Time</label>
+                    <input
+                            type="time"
+                            name="endTime"
+                            class="inputfield"
+                            id="inpEndTime"
+                            required>
+                </div>
+                <div class="form-group">
+                    <label for="timeslots">Available Timeslots</label>
+                    <div class="timeslots" id="timeslots"></div>
+                </div>
+                <input type="hidden" name="timeslotId" id="timeslotId" required>
+                <button type="submit" title="Submit" id="submitBooking">Submit Booking</button>
+            </div>
+
+            <div class = "right-side">
+                <!-- for boxes of timeslots autofitted height to fit the screen -->
+                <div class = "timeslots-container">
+                   <!-- <div class = "timeslots" id="timeslots">-->
+
+                    <!--</div>-->
+                </div>
+            </div>
+        </form>
+    </div>
+
+    </div>
+</div>
+
+<script src="js/booking/booking.js"></script>
+<script src="js/booking/activity-dropbox-create_booking.js"></script>
+<script src="js/booking/date_field-fixed.js"></script>
+</body>
+</html>
