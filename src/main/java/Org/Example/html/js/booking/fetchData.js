@@ -62,39 +62,38 @@ async function fetchActivities() {
      });
  }
 
-     function showAddActivityModal() {
-         document.getElementById('add-activity-modal').style.display = 'block';
-     }
+function showAddActivityModal() {
+    document.getElementById('add-activity-modal').style.display = 'block';
+}
 
-     function closeAddActivityModal() {
-         document.getElementById('add-activity-modal').style.display = 'none';
-     }
+function closeAddActivityModal() {
+    document.getElementById('add-activity-modal').style.display = 'none';
+}
 
-     function outsideClick(event) {
-         if (event.target === document.getElementById('add-activity-modal')) {
-             closeAddActivityModal();
-         }
-     }
+function outsideClick(event) {
+    if (event.target === document.getElementById('add-activity-modal')) {
+        closeAddActivityModal();
+    }
+}
 
-     async function createActivity(event) {
-         event.preventDefault();
-         const name = document.getElementById('activity-name').value;
-         const description = document.getElementById('activity-description').value;
-         const pricePrPerson = document.getElementById('activity-price').value
-         const timeMaxLimit = document.getElementById('activity-time-max-limit').value;
-         const ageMin = document.getElementById('activity-age-min').value;
-         const ageMax = document.getElementById('activity-age-max').value;
-         const personsMin = document.getElementById('activity-persons-min').value;
-         const personsMax = document.getElementById('activity-persons-max').value;
-         const openingTime = document.getElementById('activity-opening-time').value;
-         const closingTime = document.getElementById('activity-closing-time').value;
-         const timeSlotInterval = document.getElementById('activity-time-slot-interval').value;
+async function createActivity(event) {
+    event.preventDefault();
+    const name = document.getElementById('activity-name').value;
+    const description = document.getElementById('activity-description').value;
+    const pricePrPerson = document.getElementById('activity-price').value;
+    const timeMaxLimit = document.getElementById('activity-time-max-limit').value;
+    const ageMin = document.getElementById('activity-age-min').value;
+    const ageMax = document.getElementById('activity-age-max').value;
+    const personsMin = document.getElementById('activity-persons-min').value;
+    const personsMax = document.getElementById('activity-persons-max').value;
+    const openingTime = document.getElementById('activity-opening-time').value;
+    const closingTime = document.getElementById('activity-closing-time').value;
+    const timeSlotInterval = document.getElementById('activity-time-slot-interval').value;
 
-         // New equipment types
-         const equipmentType1 = document.getElementById('equipment-type-1').value;
+    // New equipment types
+    const equipmentType1 = document.getElementById('equipment-type-1').value;
          const equipmentType2 = document.getElementById('equipment-type-2').value;
          const equipmentType3 = document.getElementById('equipment-type-3').value;
-
          const newActivity = {
              name,
              description,
@@ -111,27 +110,26 @@ async function fetchActivities() {
          };
 
 
-         try {
-             const response = await fetch(API_URL, {
-                 method: 'POST',
-                 headers: {
-                     'Content-Type': 'application/json'
-                 },
-                 body: JSON.stringify(newActivity)
-             });
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newActivity)
+        });
 
-             if (!response.ok) {
-                 console.log('Error creating activity', response.status, errorText);
-                 throw new Error('Network response was not ok');
-             }
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
 
-             const createdActivity = await response.json();
-             displayActivities([createdActivity]);
-             document.getElementById('add-activity-form').reset();
-             closeAddActivityModal();
-         } catch (error) {
-             console.error('Error creating activity', error);
-         }
+        const createdActivity = await response.json();
+        displayActivities([createdActivity]);
+        document.getElementById('add-activity-form').reset();
+        closeAddActivityModal();
+    } catch (error) {
+        console.error('Error creating activity', error);
+    }
 }
 
 async function deleteActivity() {
@@ -243,8 +241,7 @@ async function updateActivity(event) {
     console.log('Updated activity object:', updatedActivity);
 
     try {
-        console.log(`Sending PUT request to update activity with ID: ${activityId}`);
-        const response = await fetch(`http://localhost:8080/Activity/${activityId}`, {
+        const response = await fetch(`${API_URL}/${activityId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
