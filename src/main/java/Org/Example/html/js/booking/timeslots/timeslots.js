@@ -2,6 +2,8 @@ const urlGetTimeslots = "localhost:8080/booking/available-timeslots";
 
 let timeslots = [];
 
+// functions of js
+    // 1. fetchTimeslotsAndFillDropdown
 
 // ------------------------ init ------------------------
 window.addEventListener('DOMContentLoaded', () => {
@@ -18,6 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
         console.error('Element with id "'+buttonName+'" not found');
     }
 });
+
 
 
 

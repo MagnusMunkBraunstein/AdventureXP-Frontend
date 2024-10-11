@@ -212,3 +212,15 @@ async function handleResponse(response) {
         document.getElementById("timeslots").innerHTML = '';
     }
 }
+
+function areSlotsConcurrent(slots, date) {
+    slotsStart
+        slots.forEach(slot => {
+
+        })
+        if (new Date(`1970-01-01T${slots[i].endTime}Z`) > new Date(`1970-01-01T${slots[i + 1].startTime}Z`)) {
+            return false;
+        }
+
+    return true;
+}
