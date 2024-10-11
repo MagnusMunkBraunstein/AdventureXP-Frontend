@@ -39,7 +39,9 @@ function fetchEquipmentData() {
 
 // Filter non-functional equipment
 function filterNonFunctionalEquipment(equipmentList) {
-    return equipmentList.filter(equipment => !equipment.functional);
+     equipmentList.filter(equipment => !equipment.functional);
+     console.log('Non-functional equipment:', equipmentList);
+     return equipmentList;
 }
 
 // Render the non-functional equipment in the table
