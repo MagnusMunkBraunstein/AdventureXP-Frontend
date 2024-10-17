@@ -1,11 +1,11 @@
-const urlPostBooking = "http://localhost:8080/booking";
-const urlGetBookings = "http://localhost:8080/booking";
-const urlDeleteBooking = "http://localhost:8080/booking";
-const urlGetAvailableTimeslots = "http://localhost:8080/booking/available-timeslots";
+const urlPostBooking = "/api/booking";
+const urlGetBookings = "/api/booking";
+const urlDeleteBooking = "/api/booking";
+const urlGetAvailableTimeslots = "/api/booking/available-timeslots";
 
 document.addEventListener("DOMContentLoaded", function () {
     createFormEventListener();
-    loadBookings(); // Automatically load bookings on page load
+    loadBookings();
 
     const modal = document.getElementById("bookingModal")
     const createBookingBtn = document.getElementById("createBookingBtn");

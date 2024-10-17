@@ -1,7 +1,7 @@
 
 console.log("Vi er i fetchURL.js");
 
-const API_URL = 'http://localhost:8080/Activity';
+const API_URL = '/api/Activity';
 
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,4 +1,4 @@
-const urlGetActivities = "http://localhost:8080/Activity";
+const urlGetActivities = "/api/Activity";
 
 async function fetchActivitiesAndFillDropdown() {
     let activities = await fetch(urlGetActivities)
