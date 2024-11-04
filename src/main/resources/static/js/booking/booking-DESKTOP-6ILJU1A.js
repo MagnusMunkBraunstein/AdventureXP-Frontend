@@ -5,7 +5,7 @@ const urlGetAvailableTimeslots = "http://localhost:8080/booking/available-timesl
 
 document.addEventListener("DOMContentLoaded", function () {
     createFormEventListener();
-    loadBookings(); // Automatically load bookings on page load
+    loadBookings();
 
     const modal = document.getElementById("bookingModal")
     const createBookingBtn = document.getElementById("createBookingBtn");
@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
     selActivity.addEventListener("change", fetchAvailableTimeslots)
 });
 
-
 // ------------------- CRUD Operations -------------------
 
 // create
@@ -47,9 +46,11 @@ function createFormEventListener(){
 }
 
 async function handleCreateBooking(event) {
-    event.preventDefault();
+    event.preventDefault();  // Prevent default form submission
 
+    // Make the POST request to create the booking
     try {
+        // Handle the response
         await handleResponse(await getResponse(getBookingData(event)));
 
     } catch (error) {
@@ -87,44 +88,47 @@ async function fetchAvailableTimeslots(){
     const timeslotsContainer = document.getElementById("timeslots");
     timeslotsContainer.innerHTML = '';
 
-    if (selectedActivity && selectedDate && personsAmount){ // null check
-        try{
-            const response = await fetch(`${urlGetAvailableTimeslots}?activityId=${selectedActivity}&date=${selectedDate}&personsAmount=${personsAmount}`);
-            const data = await response.json();
-
-            if(response.ok){
-                if (data.length > 0){
-                    data.forEach(slot => {
-                        const slotElement = document.createElement("div");
-                        slotElement.className = "timeslot";
-                        slotElement.textContent = `${slot.startTime} - ${slot.endTime}`;
-                        slotElement.dataset.startTime = slot.startTime;
-                        slotElement.dataset.endTime = slot.endTime;
-                        slotElement.dataset.timeslotId = slot.id;
-
-                        slotElement.onclick = function () {
-                            document.querySelectorAll('.timeslot').forEach(el => el.classList.remove('selected'));
-                            slotElement.classList.add('selected');
-                            document.getElementById('inpStartTime').value = slot.startTime;
-                            document.getElementById('inpEndTime').value = slot.endTime;
-                            document.getElementById('timeslotId').value = slot.id;
-
-                        };
-                        timeslotsContainer.appendChild(slotElement);
-
-                    });
-                }else{
-                    timeslotsContainer.innerHTML = '<div>No available timeslots</div>';
-                }
-            }else{
-                timeslotsContainer.innerHTML ='<div>Error fetching timeslots</div>'
-                console.error('Error fetching timeslots', data);
-            }
-        }catch (error){
-            console.error('Error fetching timeslots', error);
-            timeslotsContainer.innerHTML = '<div>Error fetching timeslots</div>'
-        }
+    if (!selectedActivity || !selectedDate || !personsAmount) {
+        console.error('Missing required fields');
     }
+    try{
+        const response = await fetch(`${urlGetAvailableTimeslots}?activityId=${selectedActivity}&date=${selectedDate}&personsAmount=${personsAmount}`);
+        const data = await response.json();
+
+        if(response.ok){
+            if (data.length > 0){
+                data.forEach(slot => {
+                    const slotElement = document.createElement("div");
+                    slotElement.className = "timeslot";
+                    slotElement.textContent = `${slot.startTime} - ${slot.endTime}`;
+                    slotElement.dataset.startTime = slot.startTime;
+                    slotElement.dataset.endTime = slot.endTime;
+                    slotElement.dataset.timeslotId = slot.id;
+
+                    slotElement.onclick = function () {
+                        document.querySelectorAll('.timeslot').forEach(el => el.classList.remove('selected'));
+                        slotElement.classList.add('selected');
+                        document.getElementById('inpStartTime').value = slot.startTime;
+                        document.getElementById('inpEndTime').value = slot.endTime;
+                        document.getElementById('timeslotId').value = slot.id;
+
+
+                    };
+                    timeslotsContainer.appendChild(slotElement);
+
+                });
+            }else{
+                timeslotsContainer.innerHTML = '<div>No available timeslots</div>';
+            }
+        }else{
+            timeslotsContainer.innerHTML ='<div>Error fetching timeslots</div>'
+            console.error('Error fetching timeslots', data);
+        }
+    }catch (error){
+        console.error('Error fetching timeslots', error);
+        timeslotsContainer.innerHTML = '<div>Error fetching timeslots</div>'
+    }
+
 }
 
 // ------------------- Helper methods -------------------

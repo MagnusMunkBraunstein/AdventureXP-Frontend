@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b3f32072-a04b-47e3-87ce-a9eff75cec68" name="Changes" comment="final merge dev -&gt; master">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Org/Example/html/js/booking/booking.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Org/Example/html/js/booking/booking.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="U1-CRUD-ACTIVITY" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AlekOmOm&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MagnusMunkBraunstein/AdventureXP-Frontend.git&quot;,
+    &quot;accountId&quot;: &quot;fad74dae-66ce-40a2-9b13-449f5f098d51&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2myJ1aghoqXRgt3xtnlsHN4vX3H" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.booking.html.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/HP/OneDrive/. Universitet/. Github/. KEA/AdventureXP/AdventureXP-Frontend/src/main/java/Org/Example/html/js&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\OneDrive\. Universitet\. Github\. KEA\AdventureXP\AdventureXP-Frontend\src\main\java\Org\Example\html\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\OneDrive\. Universitet\. Github\. KEA\AdventureXP\AdventureXP-Frontend\src\main\java\Org\Example\js" />
+      <recent name="C:\Users\HP\OneDrive\. Universitet\. Github\. KEA\AdventureXP\AdventureXP-Frontend\src\main\java\Org\Example\html\js\booking" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b3f32072-a04b-47e3-87ce-a9eff75cec68" name="Changes" comment="" />
+      <created>1728042672507</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728042672507</updated>
+      <workItem from="1728042675686" duration="472000" />
+      <workItem from="1728290443284" duration="10063000" />
+      <workItem from="1728415080721" duration="1529000" />
+      <workItem from="1728456132554" duration="13381000" />
+      <workItem from="1728543831415" duration="4646000" />
+      <workItem from="1728647420727" duration="1388000" />
+      <workItem from="1728649841444" duration="3271000" />
+      <workItem from="1728712153651" duration="1846000" />
+      <workItem from="1728715880016" duration="1613000" />
+      <workItem from="1728931641600" duration="609000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add booking form submit handler and participant input&#10;&#10;Introduced a new booking.js file to handle form submission via JavaScript. Added a participant name input field to the booking.html file for additional form data.">
+      <option name="closed" value="true" />
+      <created>1728294894481</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1728294894481</updated>
+    </task>
+    <task id="LOCAL-00002" summary="=== instead ==">
+      <option name="closed" value="true" />
+      <created>1728383731115</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1728383731115</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Refactor fetchData.js for code consistency&#10;&#10;Removed unnecessary comments and standardized function formatting for better readability. Simplified equipment type handling in createActivity and updateActivity functions, ensuring uniform code structure throughout the file.">
+      <option name="closed" value="true" />
+      <created>1728386993319</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1728386993319</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add missing 'id' field to updatedActivity object&#10;&#10;Previously, the 'id' field was not included in the updatedActivity object, which may have caused issues with correctly identifying and updating activities. This update ensures that the 'id' is now properly assigned, allowing for accurate activity updates.">
+      <option name="closed" value="true" />
+      <created>1728390312819</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728390312819</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fix duplicate entry in misc.xml">
+      <option name="closed" value="true" />
+      <created>1728415492339</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1728415492339</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fix duplicate entry in misc.xml">
+      <option name="closed" value="true" />
+      <created>1728417264967</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1728417264967</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fix duplicate entry in misc.xml">
+      <option name="closed" value="true" />
+      <created>1728458354266</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1728458354266</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Refactor booking.js to improve CRUD operations and error handling&#10;&#10;Separate create and delete operations into dedicated functions for better readability and maintainability. Enhanced error handling with alerts and logging to improve user feedback and debugging.">
+      <option name="closed" value="true" />
+      <created>1728461124090</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1728461124090</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Update activity selection to dropdown in booking form&#10;&#10;Replaced the text input for activity with a dropdown for better user experience. Populated the dropdown using data fetched from the server. Modified relevant JavaScript and HTML files accordingly.">
+      <option name="closed" value="true" />
+      <created>1728462455019</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1728462455019</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Refactor activity fetching logic for dropdown&#10;&#10;Moved activity fetching logic into a new function `fetchActivitiesAndFillDropdown` and updated the endpoint URL. Added an event listener to the booking button to dynamically populate the dropdown upon click.">
+      <option name="closed" value="true" />
+      <created>1728464212173</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1728464212173</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Remove obsolete JS file and reorganize front-end resources&#10;&#10;Deleted outdated `booking.js` and moved/remodeled files for better organization. Updated HTML references and added a new script to handle date field initialization while refactoring related functionalities.">
+      <option name="closed" value="true" />
+      <created>1728466465167</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1728466465167</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Refactor date field initialization and error handling&#10;&#10;Replaced unutilized string initialization with null for `dateField`. Renamed `setConstants` to `setElement` for clarity, and improved error handling logic for element fetching. Simplified date comment and removed unnecessary whitespace.">
+      <option name="closed" value="true" />
+      <created>1728467967720</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1728467967720</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add timeslots feature to booking form&#10;&#10;Introduced functionality to dynamically fetch and display available timeslots based on activity and date selected by the user. Updated the booking form structure and included the corresponding JavaScript for timeslots handling. Fixed a minor variable naming issue in the date field script.">
+      <option name="closed" value="true" />
+      <created>1728478365335</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1728478365335</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Update API base url in equipmentservice.js">
+      <option name="closed" value="true" />
+      <created>1728553833803</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1728553833803</updated>
+    </task>
+    <task id="LOCAL-00015" summary="timeslots js">
+      <option name="closed" value="true" />
+      <created>1728647442489</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1728647442489</updated>
+    </task>
+    <task id="LOCAL-00016" summary="endpoints for startpage">
+      <option name="closed" value="true" />
+      <created>1728649967568</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1728649967568</updated>
+    </task>
+    <task id="LOCAL-00017" summary="endpoints for startpage">
+      <option name="closed" value="true" />
+      <created>1728650029921</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1728650029921</updated>
+    </task>
+    <task id="LOCAL-00018" summary="endpoints for startpage">
+      <option name="closed" value="true" />
+      <created>1728650083198</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1728650083198</updated>
+    </task>
+    <task id="LOCAL-00019" summary="startpage endpoints fixed">
+      <option name="closed" value="true" />
+      <created>1728660542691</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1728660542691</updated>
+    </task>
+    <task id="LOCAL-00020" summary="final clean up before final merge dev -&gt; master">
+      <option name="closed" value="true" />
+      <created>1728715983904</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1728715983904</updated>
+    </task>
+    <task id="LOCAL-00021" summary="final merge dev -&gt; master">
+      <option name="closed" value="true" />
+      <created>1728716217045</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1728716217045</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add booking form submit handler and participant input&#10;&#10;Introduced a new booking.js file to handle form submission via JavaScript. Added a participant name input field to the booking.html file for additional form data." />
+    <MESSAGE value="=== instead ==" />
+    <MESSAGE value="Refactor fetchData.js for code consistency&#10;&#10;Removed unnecessary comments and standardized function formatting for better readability. Simplified equipment type handling in createActivity and updateActivity functions, ensuring uniform code structure throughout the file." />
+    <MESSAGE value="Add missing 'id' field to updatedActivity object&#10;&#10;Previously, the 'id' field was not included in the updatedActivity object, which may have caused issues with correctly identifying and updating activities. This update ensures that the 'id' is now properly assigned, allowing for accurate activity updates." />
+    <MESSAGE value="Fix duplicate entry in misc.xml" />
+    <MESSAGE value="Refactor booking.js to improve CRUD operations and error handling&#10;&#10;Separate create and delete operations into dedicated functions for better readability and maintainability. Enhanced error handling with alerts and logging to improve user feedback and debugging." />
+    <MESSAGE value="Update activity selection to dropdown in booking form&#10;&#10;Replaced the text input for activity with a dropdown for better user experience. Populated the dropdown using data fetched from the server. Modified relevant JavaScript and HTML files accordingly." />
+    <MESSAGE value="Refactor activity fetching logic for dropdown&#10;&#10;Moved activity fetching logic into a new function `fetchActivitiesAndFillDropdown` and updated the endpoint URL. Added an event listener to the booking button to dynamically populate the dropdown upon click." />
+    <MESSAGE value="Remove obsolete JS file and reorganize front-end resources&#10;&#10;Deleted outdated `booking.js` and moved/remodeled files for better organization. Updated HTML references and added a new script to handle date field initialization while refactoring related functionalities." />
+    <MESSAGE value="Refactor date field initialization and error handling&#10;&#10;Replaced unutilized string initialization with null for `dateField`. Renamed `setConstants` to `setElement` for clarity, and improved error handling logic for element fetching. Simplified date comment and removed unnecessary whitespace." />
+    <MESSAGE value="Add timeslots feature to booking form&#10;&#10;Introduced functionality to dynamically fetch and display available timeslots based on activity and date selected by the user. Updated the booking form structure and included the corresponding JavaScript for timeslots handling. Fixed a minor variable naming issue in the date field script." />
+    <MESSAGE value="Update API base url in equipmentservice.js" />
+    <MESSAGE value="timeslots js" />
+    <MESSAGE value="endpoints for startpage" />
+    <MESSAGE value="startpage endpoints fixed" />
+    <MESSAGE value="final clean up before final merge dev -&gt; master" />
+    <MESSAGE value="final merge dev -&gt; master" />
+    <option name="LAST_COMMIT_MESSAGE" value="final merge dev -&gt; master" />
+  </component>
+</project>

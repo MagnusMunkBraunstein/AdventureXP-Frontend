@@ -92,23 +92,22 @@ async function createActivity(event) {
 
     // New equipment types
     const equipmentType1 = document.getElementById('equipment-type-1').value;
-         const equipmentType2 = document.getElementById('equipment-type-2').value;
-         const equipmentType3 = document.getElementById('equipment-type-3').value;
-         const newActivity = {
-             name,
-             description,
-             pricePrPerson,
-             timeMaxLimit,
-             ageMin,
-             ageMax,
-             personsMin,
-             personsMax,
-             openingTime,
-             closingTime,
-             timeSlotInterval,
-             equipmentTypes: [equipmentType1, equipmentType2, equipmentType3] // Include equipment types
-         };
-
+    const equipmentType2 = document.getElementById('equipment-type-2').value;
+    const equipmentType3 = document.getElementById('equipment-type-3').value;
+    const newActivity = {
+        name,
+        description,
+        pricePrPerson,
+        timeMaxLimit,
+        ageMin,
+        ageMax,
+        personsMin,
+        personsMax,
+        openingTime,
+        closingTime,
+        timeSlotInterval,
+        equipmentTypes: [equipmentType1, equipmentType2, equipmentType3] // Include equipment types
+    };
 
     try {
         const response = await fetch(API_URL, {
